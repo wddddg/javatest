@@ -1,4 +1,4 @@
-package com.sky.controller.dish;
+package com.sky.controller.admin;
 
 import com.github.pagehelper.Page;
 import com.sky.dto.CategoryDTO;

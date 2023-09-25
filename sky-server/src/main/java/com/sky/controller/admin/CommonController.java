@@ -1,4 +1,4 @@
-package com.sky.controller.Common;
+package com.sky.controller.admin;
 
 
 import com.sky.result.Result;
