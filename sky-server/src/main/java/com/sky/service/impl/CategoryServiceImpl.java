@@ -8,10 +8,10 @@ import com.sky.dto.CategoryDTO;
 import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
 import com.sky.entity.Employee;
-import com.sky.mapper.CategroyMapper;
+import com.sky.mapper.CategoryMapper;
 import com.sky.mapper.EmployeeMapper;
 import com.sky.result.PageResult;
-import com.sky.service.CategroyService;
+import com.sky.service.CategoryService;
 import com.sky.service.EmployeeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +22,15 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class CategroyServiceImpl implements CategroyService {
+public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
-    private CategroyMapper categroyMapper;
+    private CategoryMapper categoryMapper;
 
 
     public PageResult pageQuery(CategoryPageQueryDTO categoryPageQueryDTO) {
         PageHelper.startPage(categoryPageQueryDTO.getPage(), categoryPageQueryDTO.getPageSize());
-        Page<Employee> page = categroyMapper.pageQuery(categoryPageQueryDTO);
+        Page<Employee> page = categoryMapper.pageQuery(categoryPageQueryDTO);
         return new PageResult(page.getTotal(), page.getResult());
     }
 
@@ -41,26 +41,26 @@ public class CategroyServiceImpl implements CategroyService {
 
         category.setStatus(StatusConstant.ENABLE);
 
-        categroyMapper.addCategroy(category);
+        categoryMapper.addCategroy(category);
     }
 
     public void changeCategoryStatus(Integer status, Long id) {
         Category category = new Category();
         category.setId(id);
         category.setStatus(status);
-        categroyMapper.update(category);
+        categoryMapper.update(category);
     }
 
 
     public void updateCategoryInfo(CategoryDTO categoryDTO) {
         Category category = new Category();
         BeanUtils.copyProperties(categoryDTO, category);
-        categroyMapper.update(category);
+        categoryMapper.update(category);
     }
 
 
     public void deleteCategoryInfo(Long id) {
-        categroyMapper.delete(id);
+        categoryMapper.delete(id);
     }
 
     /**
@@ -69,7 +69,7 @@ public class CategroyServiceImpl implements CategroyService {
      * @return
      */
     public List<Category> list(Integer type) {
-        return categroyMapper.list(type);
+        return categoryMapper.list(type);
     }
 
 

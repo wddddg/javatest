@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface CategroyMapper {
+public interface CategoryMapper {
 
     Page<Employee> pageQuery(CategoryPageQueryDTO categoryPageQueryDTO);
 

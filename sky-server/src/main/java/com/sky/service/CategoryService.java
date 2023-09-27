@@ -8,7 +8,7 @@ import com.sky.result.PageResult;
 
 import java.util.List;
 
-public interface CategroyService {
+public interface CategoryService {
 
     PageResult pageQuery(CategoryPageQueryDTO categoryPageQueryDTO);
 
