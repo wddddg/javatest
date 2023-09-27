@@ -7,7 +7,6 @@ import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.CategroyService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +14,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController("adminCategoryController")
 @RequestMapping("/admin/category")
 @Slf4j
 @Api(tags = "分类接口")
-public class CategroyController {
+public class CategoryController {
 
     @Autowired
-    CategroyService categroyService;
+    private CategroyService categroyService;
 
     @GetMapping("/page")
     @ApiOperation("分类分页查询")

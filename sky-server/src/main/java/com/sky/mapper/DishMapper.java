@@ -2,7 +2,6 @@ package com.sky.mapper;
 
 import com.github.pagehelper.Page;
 import com.sky.annotation.AutoFill;
-import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
 import com.sky.entity.Dish;
 import com.sky.enumeration.OperationType;
@@ -36,4 +35,10 @@ public interface DishMapper {
 
     @AutoFill(value = OperationType.UPDATE)
     void update(Dish dish);
+
+    @Select("select * from dish where category_id = #{categoryId} and status = #{status}")
+    List<Dish> listByCategoryId(Long categoryId, Integer status);
+
+    @Select("select a.* from dish a left join setmeal_dish b on a.id = b.dish_id where b.setmeal_id = #{setmealId}")
+    List<Dish> getBySetmealId(Long setmealId);
 }
