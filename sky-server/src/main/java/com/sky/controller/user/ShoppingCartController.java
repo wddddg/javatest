@@ -43,4 +43,11 @@ public class ShoppingCartController {
         return Result.success();
     }
 
+    @PostMapping("/sub")
+    @ApiOperation("购物车单个删除或者数量减一")
+    public Result sub(@RequestBody ShoppingCartDTO shoppingCartDTO) {
+        shoppingCartService.sub(shoppingCartDTO);
+        return Result.success();
+    }
+
 }
