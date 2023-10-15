@@ -39,8 +39,6 @@ public class AddressController {
     @PostMapping
     @ApiOperation("用户地址新增")
     public Result addUserAddress(@RequestBody AddressBook addressBook) {
-        addressBook.setUserId(BaseContext.getCurrentId());
-        addressBook.setIsDefault(0);
         addressService.addUserAddress(addressBook);
         return Result.success();
     }

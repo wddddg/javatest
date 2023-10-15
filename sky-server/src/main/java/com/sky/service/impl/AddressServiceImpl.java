@@ -37,6 +37,8 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public void addUserAddress(AddressBook addressBook) {
+        addressBook.setUserId(BaseContext.getCurrentId());
+        addressBook.setIsDefault(0);
         addressMapper.addUserAddress(addressBook);
     }
 
